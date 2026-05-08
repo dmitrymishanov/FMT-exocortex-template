@@ -99,7 +99,7 @@
 
 #### 7. Сформировать черновик WeekPlan (применяя `PD.METHOD.017`)
 
-> **Метод отбора РП:** [`PD.METHOD.017 Work Product Selection`](../../../PACK-personal/pack/personal-development/03-methods/PD.METHOD.017-wp-selection.md). Четыре шага метода применяются ниже.
+> **Метод отбора РП:** [`PD.METHOD.017 Work Product Selection`](../../../../PACK-personal/pack/personal-development/03-methods/PD.METHOD.017-wp-selection.md). Четыре шага метода применяются ниже.
 
 **7.1. Candidate pool** (PD.METHOD.017 шаг 1) — собери всех кандидатов в одном списке:
 - (a) активные фазы R1-RN из приоритетов месяца (Strategy.md);

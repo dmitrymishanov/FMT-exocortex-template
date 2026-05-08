@@ -104,7 +104,7 @@
 
 #### 6. Формирование плана на неделю (применяя `PD.METHOD.017`)
 
-> **Метод:** [`PD.METHOD.017 Work Product Selection`](../../../PACK-personal/pack/personal-development/03-methods/PD.METHOD.017-wp-selection.md). Четыре шага метода — ниже.
+> **Метод:** [`PD.METHOD.017 Work Product Selection`](../../../../PACK-personal/pack/personal-development/03-methods/PD.METHOD.017-wp-selection.md). Четыре шага метода — ниже.
 
 **6.1. Candidate pool** — пройди предложенные РП из черновика session-prep. Убедись что включены: (a) активные R{N} месяца, (b) carry-over с приоритизацией, (c) предложения из inbox triage.
 
