@@ -638,7 +638,7 @@ while IFS='|' read -r fpath _; do
                     cp "$SCRIPT_DIR/$fpath" "$mem_dst"
                     echo "  ⟲ $fpath → memory/ (repair)"
                     REPAIRED=$((REPAIRED + 1))
-                elif [ "$(hash_file "$SCRIPT_DIR/$fpath")" != "$(hash_file "$mem_dst")" ]; then
+                elif [ -r "$mem_dst" ] && [ "$(hash_file "$SCRIPT_DIR/$fpath")" != "$(hash_file "$mem_dst")" ]; then
                     cp "$SCRIPT_DIR/$fpath" "$mem_dst"
                     echo "  ⟲ $fpath → memory/ (stale repair)"
                     REPAIRED=$((REPAIRED + 1))
@@ -653,7 +653,7 @@ while IFS='|' read -r fpath _; do
                 case "$fpath" in *.sh) chmod +x "$dst" ;; esac
                 echo "  ⟲ $fpath → workspace (repair)"
                 REPAIRED=$((REPAIRED + 1))
-            elif [ "$(hash_file "$SCRIPT_DIR/$fpath")" != "$(hash_file "$dst")" ]; then
+            elif [ -r "$dst" ] && [ "$(hash_file "$SCRIPT_DIR/$fpath")" != "$(hash_file "$dst")" ]; then
                 cp "$SCRIPT_DIR/$fpath" "$dst"
                 case "$fpath" in *.sh) chmod +x "$dst" ;; esac
                 echo "  ⟲ $fpath → workspace (stale repair)"
