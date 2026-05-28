@@ -12,10 +12,42 @@ Versioning: [Semantic Versioning](https://semver.org/).
 
 
 
-## [Unreleased] — обновлено 2026-05-24
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## [Unreleased] — обновлено 2026-05-27
 
 ### Added
 
+- `7285005` feat(distinctions): Ход (turn) ≠ Сессия (DP.SC.162 v2, WP-358)
+- `54e3f31` feat(distinctions): Session request/light/heavy — WP-358 peer-сессия 27 мая
+- `6e38782` feat(WP-350/Ф20): доставка Маршрутизатора и 5 скиллов в FMT через promote-конвейер
+- `1e32045` feat(manifest): MG5 — pre-commit hook для manifest coverage + 4 orphan-файла в манифест
+- `2136de9` feat(WP-350): JSON output, routing-path-distribution audit, routing-errors.log
+- `766eb3d` feat(WP-350): agent-fault skill для AGENT_FAULT routing
+- `33cc31d` feat(WP-350): strict/flex routing + test suite (8 cases)
+- `0b6afe1` feat(WP-350): промоция generate-executor-catalog.py + generate-helper-catalog.py
+- `cd2a295` feat(WP-350): routing-заголовки в 21 FMT хелпер-скрипт
+- `c571c55` feat(WP-350 Ф13): Маршрутизатор + Артефактор в Session Open
+- `7599ae5` feat(WP-350 Ф12): route-task.sh — Маршрутизатор задач IWE
+- `ceca611` feat(WP-350 Ф10): routing-заголовки в 20 скриптов + script_path в 3 SKILL.md
+- `6142f6a` feat(WP-350 Ф9): routing: секция в 21 скилл шаблона
+- `0ba2168` feat(WP-352/Ф3): add HD numbers to 4 FPF distinctions in distinctions.md
+- `b05a35b` feat(WP-352 Ф2): 4 FPF различения в distinctions.md
+- `016833a` feat(week-close): add step 7a iwe-backup-check.sh before backup
+- `836997c` feat: promote iwe-backup-check.sh to platform scripts
+- `a4260e7` feat(day-open): scaffold PENDING markers + protocol-close WP archiving step
 - `02bfe7d` feat: guard в script-promote.sh — блокирует перезапись фиксов FMT
 - `75d15f0` feat(WP-347 Ф3+Ф4): docs/RELEASE-PROCESS.md + правило валидатора в SCRIPT-PROMOTION.md
 - `95817fa` feat(WP-347 Ф2): CI-конвейер: B2 manifest CI + B8 set-e детектор + гранулярные флаги
@@ -28,11 +60,12 @@ Versioning: [Semantic Versioning](https://semver.org/).
 - `cecf52d` feat(WP-348): Ф4 — create-skill.sh + validate-skill.sh
 - `d4e3db2` feat(WP-348): Ф3 — SKILL.md v2 шаблон + генератор каталога + мигратор
 - `2136141` feat: settings-promote.sh + pre-commit HOOK-PATH-CONVENTION gate
-- `333c83d` feat(strategist): complete runner migration — run_skill() for day-open/day-close/week-close/strategy-session
-- `f550e9b` feat(pack-templates): DP.ROLE.NNN Constraint Analyst + DP.SC.NNN + DP.WP.NNN
 
 ### Changed
 
+- `74d5b67` sync(wp-new): синхронизация с user-level — active-wp пересборка + блокирующее правило
+- `c098042` ci(validate-template): add validate-fmt-scripts.sh to CI pipeline
+- `89ea560` refactor(WP-350 Ф5): R29 Артефактор → Декомпозитор, /artifactor → /decompose
 - `a5b9aa8` docs(changelog): add 2c92438 warn() fix to Unreleased
 - `f721eb0` chore(audit-installation): add SKILL.md frontmatter (version, layer, status, triggers)
 - `af829fe` chore: sync headless-runner.sh
@@ -42,6 +75,19 @@ Versioning: [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 
+- `39ca8ea` fix(template): replace author-specific DS-my-strategy with placeholder
+- `beb7f15` fix(week-draft): WD1 — заполнять даты Пн-Вс в таблице метрик для совместимости с append
+- `8676d68` fix(setup): auto-enable core.hooksPath for repos with .githooks/
+- `ed67968` fix(validate): whitelist direct-call hooks + parametrize DS-strategy literal in iwe-audit
+- `89367b4` fix(router): interpreter auto-detection + T13 agent-fault args
+- `8bea701` fix(WP-350): Шаг 0 Маршрутизатор — безусловный, loop-guard, AGENT_FAULT
+- `03515f0` fix(WP-350): explicit return 0 in all dispatch branches
+- `4dd7cf2` fix(WP-350): llm_tokens field, 10 test cases, return consistency
+- `8a3fa5d` fix(WP-350): audit-log on script failure, return exit code
+- `8d51a01` fix(WP-350): audit-log calls, yaml check, args quoting, test rename
+- `63503aa` fix(test-route-task): add || true to ((VAR++)) under set -e
+- `27fecea` fix(validate-fmt-scripts): safe-pattern exclusions for detector false positives
+- `457950b` fix(manifest): B2 coverage gap — add 3 orphan scripts to update-manifest.json
 - `0bc537f` fix(script-promote): робастный hint + аргументы в любом порядке
 - `dde3e7f` fix: регрессии после sync + 2 новых дополнения
 - `9dfbfaa` fix: минимальный frontmatter в guard-else вместо touch
@@ -56,10 +102,6 @@ Versioning: [Semantic Versioning](https://semver.org/).
 - `7f3fba0` fix(WP-348): SIGPIPE-баг в migrate-skills-to-v2.sh has_field()
 - `8a231a3` fix(CI): закрыть 3 реальных блокера Validate Template
 - `b00ef4c` fix(settings-promote): inline jq check вместо полного validate-fmt-scripts.sh
-- `72f7572` fix: hook paths — $CLAUDE_PROJECT_DIR/ convention for all hook commands
-- `e337183` fix(manifest): remove strategist prompts from deprecated_files — runner still uses them
-- `5bffbc9` fix: replace hardcoded DS-strategy with GOVERNANCE_DIR/GOVERNANCE_REPO env vars
-- `2c5e91d` fix(pack-templates): DP.WP.NNN — добавить §6 пример Stage Dependency Map
 
 
 ## [0.34.1] — 2026-05-21
