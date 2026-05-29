@@ -37,11 +37,7 @@ for arg in "$@"; do
         *) [ -z "$TEMPLATE_DIR" ] && TEMPLATE_DIR="$arg" ;;
     esac
 done
-# Автодетект: скрипт лежит в setup/, родитель = корень FMT-exocortex-template.
-# Раньше дефолт был жёстко прописан как $HOME/IWE/FMT-exocortex-template — это
-# падало на инсталляциях, где репо лежит в другом месте (например, ~/Documents/IWE/).
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-TEMPLATE_DIR="${TEMPLATE_DIR:-$(cd "$SCRIPT_DIR/.." && pwd)}"
+TEMPLATE_DIR="${TEMPLATE_DIR:-$HOME/IWE/FMT-exocortex-template}"
 FAIL=0
 
 # Guard: post-setup state + default pristine mode → подсказать installed-режим и выйти.
